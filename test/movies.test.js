@@ -42,7 +42,7 @@ describe('API Movies', () => {
     expect(deleteRes.body.message).toBe('Film supprimé avec succès'); // Vérifie le message de réponse
   });
 
-  it('🔄 Devrait mettre à jour un film', async () => {
+  it('🔄 Devrait mettre à jour un film   ', async () => {
     const newMovie = { title: 'Inception', director: 'Christopher Nolan' };
     const createRes = await request(app).post('/movies').send(newMovie); // Ajoute un film
 
