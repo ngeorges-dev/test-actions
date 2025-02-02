@@ -25,7 +25,7 @@ describe('API Movies', () => {
 
     expect(res.statusCode).toBe(200);
     expect(res.body.title).toBe('Terminator');
-    expect(res.body.director).toBe('James d');
+    expect(res.body.director).toBe('James Cameron');
   });
 
   it('🗑️ Devrait supprimer un film', async () => {
