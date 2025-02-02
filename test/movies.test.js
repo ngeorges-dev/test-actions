@@ -41,4 +41,22 @@ describe('API Movies', () => {
     expect(deleteRes.statusCode).toBe(200); // Le code de statut devrait être 200 pour la suppression réussie
     expect(deleteRes.body.message).toBe('Film supprimé avec succès'); // Vérifie le message de réponse
   });
+
+  it('🔄 Devrait mettre à jour un film', async () => {
+    const newMovie = { title: 'Inception', director: 'Christopher Nolan' };
+    const createRes = await request(app).post('/movies').send(newMovie); // Ajoute un film
+
+    const movieId = createRes.body.id; // Récupère l'ID du film ajouté
+    const updatedMovie = {
+      title: 'Inception',
+      director: 'Christopher Nolan',
+      year: 2010,
+    };
+    const updateRes = await request(app)
+      .put(`/movies/${movieId}`)
+      .send(updatedMovie); // Met à jour le film
+
+    expect(updateRes.statusCode).toBe(200); // Le code de statut devrait être 200 pour la mise à jour réussie
+    expect(updateRes.body.year).toBe(2010); // Vérifie si l'année a été mise à jour
+  });
 });
