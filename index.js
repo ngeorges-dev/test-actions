@@ -36,4 +36,17 @@ app.delete('/movies/:id', (req, res) => {
   res.json({ message: 'Film supprimé avec succès' });
 });
 
+app.put('/movies/:id', (req, res) => {
+  const id = parseInt(req.params.id);
+  const updatedMovie = req.body;
+  movies = movies.map((movie) => {
+    if (movie.id === id) {
+      return { ...movie, ...updatedMovie };
+    }
+    return movie;
+  });
+
+  res.json(movies.find((movie) => movie.id === id));
+});
+
 module.exports = app;
