@@ -11,7 +11,8 @@
   },
   "lint-staged": {
     "*.{js,ts}": [
-      "npm test"
+      "eslint --fix",
+      "prettier --write"
     ]
   },
   "repository": {
