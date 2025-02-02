@@ -6,8 +6,7 @@
   "scripts": {
     "test": "jest",
     "format": "prettier --write .",
-    "prepare": "husky",
-    "precommit": "eslint ."
+    "prepare": "husky"
   },
   "lint-staged": {
     "*.{js,ts}": [
