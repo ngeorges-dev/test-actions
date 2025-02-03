@@ -59,4 +59,12 @@ describe('API Movies', () => {
     expect(updateRes.statusCode).toBe(200); // Le code de statut devrait être 200 pour la mise à jour réussie
     expect(updateRes.body.year).toBe(2010); // Vérifie si l'année a été mise à jour
   });
+
+  it('❌ Devrait retourner une erreur si le film n\'est pas trouvé', async () => {
+    // Test avec un ID de film qui n'existe pas
+    const res = await request(app).get('/movies/999999');
+    
+    expect(res.statusCode).toBe(404); // Le code de statut devrait être 404 pour un film non trouvé
+    expect(res.body.message).toBe('Film non trouvé'); // Message d'erreur attendu
+  });
 });

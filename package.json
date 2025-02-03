@@ -6,8 +6,13 @@
   "scripts": {
     "test": "jest",
     "format": "prettier --write .",
-    "prepare": "husky",
-    "precommit": "eslint ."
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{js,ts}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
   },
   "repository": {
     "type": "git",
